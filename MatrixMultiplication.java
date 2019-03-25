@@ -7,7 +7,10 @@
 	//and print the result properly
 import java.util.Scanner;
 
-public class MatMul {
+public class MatMul { // NOTE: classname does not match filename, compilation error
+
+	// NOTE: Indentation in this file is bad.
+	//       This makes it hard to read for anyone other then you.
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -41,7 +44,7 @@ public class MatMul {
     	        matrix2[i][j] = sc.nextInt();
     	        
     	        int[][] result=Multi(matrix1, matrix2, row1, column2);
-    	        displayProduct(result);
+    	        displayProduct(result); // NOTE: This output is confusing
     	        
     	}		
     }
@@ -50,7 +53,15 @@ public class MatMul {
     		System.out.println("Matrix Dimesions are not correct");
     	}
     	
-    	 
+		// NOTE: the output of the calculation is not correct
+		//       e.g. given the input:
+		//       [1, 2, 3] * [1, 2  
+		//                    3, 4
+		//                    5, 6]
+		//
+		//       ... your result is [1, 2], but it should be:
+		//
+		//       [22, 28]
     	
 	}
 	public static int[][] Multi(int[][] matrix1, int[][] matrix2,int row1,int column2){

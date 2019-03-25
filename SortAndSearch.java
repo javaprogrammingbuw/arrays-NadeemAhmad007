@@ -9,9 +9,12 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Sort {
+public class Sort { // NOTE: classname does not match filename, compilation error
 
-	   public static void main(String args[]) {
+	// NOTE: Indentation in this file is bad.
+	//       This makes it hard to read for anyone other then you.
+	
+		public static void main(String args[]) {
 		      Scanner s = new Scanner(System.in);
 		      System.out.println("Enter the length of the array:");
 		      int length = s.nextInt();
@@ -51,7 +54,11 @@ public class Sort {
 		   return myArray;
 	   }
 	   
-	  public static int binarySearch(int myArray[], int l, int r, int x) {  
+		// NOTE: the result of the method is confusing
+		// If the input is [1, 2, 2, 3, 4] and i will search for 2 - i get 2 as an index.
+		// If the input is [1, 2, 2, 2, 2] and i will search for 2 - i get 2 as an index.
+		// -> something is strange here, please check that
+	   public static int binarySearch(int myArray[], int l, int r, int x) {  
 		   
 	        if (r >= l) { 
 	            int mid = l + (r - l) / 2; 

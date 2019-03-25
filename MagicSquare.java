@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 public class MagicSquare {
 
+	// NOTE: Indentation in this file is bad.
+	//       This makes it hard to read for anyone other then you.
 
 	    public static void main(String[] args) {
 	    	Scanner sc = new Scanner(System.in);
@@ -45,8 +47,8 @@ Test matrix to check whether matrix is magic square*/
 	        // calculate the sum of 
 	        // the prime diagonal 
 	        int sum = 0; 
-	        for (int i = 0; i < matrix.length; i++) 
-	            sum = sum + matrix[i][i]; 
+	        for (int i = 0; i < matrix.length; i++) // NOTE: not using brackets here is formally correct, but it's better to add them
+	            sum = sum + matrix[i][i]; 			// NOTE: you only checked one diagonal (top-left to bottom-right)
 	  
 	        // For sums of Rows 
 	        for (int i = 0; i < matrix.length; i++) { 
