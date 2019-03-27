@@ -10,8 +10,6 @@ import java.util.Scanner;
 
 public class MagicSquare {
 
-	// NOTE: Indentation in this file is bad.
-	//       This makes it hard to read for anyone other then you.
 
 	    public static void main(String[] args) {
 	    	Scanner sc = new Scanner(System.in);
@@ -44,42 +42,66 @@ Test matrix to check whether matrix is magic square*/
 	
 	    static boolean isMagicSquare(int matrix[][]) { 
 	          
-	        // calculate the sum of 
-	        // the prime diagonal 
-	        int sum = 0; 
-	        for (int i = 0; i < matrix.length; i++) // NOTE: not using brackets here is formally correct, but it's better to add them
-	            sum = sum + matrix[i][i]; 			// NOTE: you only checked one diagonal (top-left to bottom-right)
-	  
-	        // For sums of Rows 
-	        for (int i = 0; i < matrix.length; i++) { 
-	  
-	            	int rowSum = 0; 
-	            	for (int j = 0; j < matrix.length; j++) 
-	                rowSum += matrix[i][j]; 
-	  
-	            // check if every row sum is 
-	            // equal to prime diagonal sum 
-	            	if (rowSum != sum) 
-	                return false; 
-	        			} 
-	  
-	        // For sums of Columns 
-	        		for (int i = 0; i < matrix.length; i++) { 
-	  
-	        				int colSum = 0; 
-	        				for (int j = 0; j < matrix.length; j++) 
-	        				colSum += matrix[j][i]; 
-	  
-	            // check if every column sum is 
-	            // equal to prime diagonal sum 
-	        				if (sum != colSum) 
-	        				return false; 
-	        } 
-	  
-	        				return true; 
-	    } 
-	  
-	 
-	  
-	}
-
+	    	 int n = sumOfRow(matrix[0]);
+	         
+	         for (int[] row : matrix)
+	         {
+	            int sum = sumOfRow(row);        
+	            if (sum != n)
+	            return false;   
+	         }
+	         int sum = 0;
+	          
+	         //rows
+	        for (int i = 0; i < matrix.length; i++){
+	            sum = 0;
+	            for (int j = 0; j < matrix.length; j++){
+	                sum += matrix[i][j];
+	            }
+	            if(sum != n){
+	               return false;
+	            }
+	        }
+	         // columns
+	         
+	         for(int i =0; i < matrix.length; i++){
+	             sum = 0;
+	              
+	             for(int j = 0; j< matrix.length; j++){
+	                 sum += matrix[j][i];
+	             }
+	             if(sum != n){
+	                 return false;
+	             }
+	         }
+	         //diagonal from top left corner to bottom right corner
+	         sum = 0;
+	         for (int i = 0; i < matrix.length; i++)
+	         {
+	            sum += matrix[i][i];
+	         }
+	         if (sum != n)
+	            return false;
+	             
+	         sum = 0;
+	         // top right to bottom left diagonal
+	         for (int i = 0; i < matrix.length; i++)
+	         {
+	            sum += matrix[i][matrix.length - 1 - i];
+	         }
+	         if (sum != n)
+	            return false;
+	         return true;
+	          
+	      } 
+	      
+	     //returns the sum of the elements in the row
+	     private static int sumOfRow(int[] row){
+	        int sum = 0;
+	        for(int el : row){
+	           sum += el;
+	        }
+	        return sum;
+	     }
+	     
+}
